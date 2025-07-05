@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-image: url("main.jpg");
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0.578);
+    backdrop-filter: blur(2px);
+}
+
+#home {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    background: transparent;
+}
+
+.slider {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    transform: perspective(1000px) rotateX(-15deg);
+    transform-style: preserve-3d;
+    animation: rotate 15s infinite linear;
+}
+
+.item {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    transform:
+        rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+        translateZ(250px);
+    background: black; /* Black background behind images */
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: transparent;
+}
+
+.slogan {
+    position: absolute;
+    top: calc(50% - 300px); /* Above slider (250px height + 50px gap) */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f28c38; /* Orange color */
+    font-size: 50px;
+    font-weight: 800px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Enhance visibility */
+}
+
+@keyframes rotate {
+    from { transform: perspective(1000px) rotateX(-15deg) rotateY(0deg); }
+    to { transform: perspective(1000px) rotateX(-15deg) rotateY(360deg); }
+}
